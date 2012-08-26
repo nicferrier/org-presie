@@ -1,6 +1,6 @@
 Really simple Org presentation tool.
 
-Keep an Org outline and switch the {{{org-pres-mode}} on and you can
+Keep an Org outline and switch the {{{org-pres-mode}}} on and you can
 open each headline in turn by pressing the space bar.  As you open
 each headline the previous one will be closed.
 
