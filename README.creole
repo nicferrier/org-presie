@@ -1,0 +1,42 @@
+Really simple Org presentation tool.
+
+Keep an Org outline and switch the {{{org-pres-mode}} on and you can
+open each headline in turn by pressing the space bar.  As you open
+each headline the previous one will be closed.
+
+So you might start like this:
+
+{{{
+* this guy invents a language
+* it's so exciting and powerful
+* they decide to build a computer around it
+}}}
+
+and then you press SPACE and you have this:
+
+{{{
+* this guy invents a language
+** John McCarthy [[file:./jmcbw.jpg]]
+*** 1958
+* it's so exciting and powerful
+* they decide to build a computer around it
+}}}
+
+and then SPACE again and you have this:
+
+{{{
+* this guy invents a language
+* it's so exciting and powerful
+** Richard Greenblatt [[file:./2-4.Greenblatt-Richard_Knight.1978.L02645385.MIT.lg.jpg]]
+* they decide to build a computer around it
+}}}
+
+As you go {{{org-pres-mode}}} also opens any image it happens to file
+in the current outline in another window.
+
+So you get a kind of useful presentation like tool for basically only:
+
+* writing out your thoughts in a structure
+* adding some entertaining images
+
+Which makes for a pretty good presentation for most things.
