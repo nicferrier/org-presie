@@ -32,19 +32,10 @@
 (require 'eimp)
 (require 'cl)
 
-(define-minor-mode org-pres-mode
-    "Turn on Org Presentation mode.
-
-Treats a single org file as a list of top level 'slides',
-'opening' each one in turn (and closing the previous one).
-
-A postive prefix argument forces this mode on, a negative prefix
-argument forces this mode off; otherwise the mode is toggled."
-  nil
-  "PRES"
-  '((?\s  . org-pres-next))
-  (unless (eq major-mode 'org-mode)
-    (error "only works with org-mode!")))
+(defun org-pres--eimp-fit ()
+  "Function used as a hook, fits the image found to the window."
+  (when (eq major-mode (quote image-mode))
+    (eimp-fit-image-to-window nil)))
 
 (defun org-pres-next ()
   "Next 'slide'."
@@ -58,23 +49,32 @@ argument forces this mode off; otherwise the mode is toggled."
         (call-interactively 'org-cycle)
         (next-line)
         (show-branches)
-        (add-hook
-         'find-file-hook
-         (lambda nil
-           (when (eq major-mode (quote image-mode))
-             (call-interactively (quote eimp-fit-image-to-window))))
-         nil
-         t)
         (save-excursion
           (let ((next-outline
                  (save-excursion
                    (next-line)
                    (re-search-forward "^\\*[^*]" nil 't))))
-            (when (re-search-forward "\\[\\[" next-outline nil)
+            (when (re-search-forward
+                   "\\[\\[.*\\.\\(jpg\\|gif\\|png\\)" next-outline nil)
               (org-open-at-point)
               (other-window -1)))))
       (re-search-forward "^\\*+" nil nil)
       (show-branches)))
+
+(define-minor-mode org-pres-mode
+    "Turn on Org Presentation mode.
+
+Treats a single org file as a list of top level 'slides',
+'opening' each one in turn (and closing the previous one).
+
+A postive prefix argument forces this mode on, a negative prefix
+argument forces this mode off; otherwise the mode is toggled."
+  nil
+  "PRES"
+  '((?\s  . org-pres-next))
+  (unless (eq major-mode 'org-mode)
+    (error "only works with org-mode!"))
+  (add-hook 'find-file-hook 'org-pres--eimp-fit))
 
 (provide 'org-presie)
 
