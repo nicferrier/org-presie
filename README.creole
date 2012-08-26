@@ -31,7 +31,7 @@ and then SPACE again and you have this:
 * they decide to build a computer around it
 }}}
 
-As you go {{{org-pres-mode}}} also opens any image it happens to file
+As you go {{{org-pres-mode}}} also opens any image it happens to find
 in the current outline in another window.
 
 So you get a kind of useful presentation like tool for basically only:
@@ -39,4 +39,4 @@ So you get a kind of useful presentation like tool for basically only:
 * writing out your thoughts in a structure
 * adding some entertaining images
 
-Which makes for a pretty good presentation for most things.
+which makes for a pretty good presentation for most things.
