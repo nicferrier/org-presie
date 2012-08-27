@@ -5,7 +5,7 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Created: 26th August 2012
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Keywords: hypermedia, outlines
 ;; Package-Requires: ((eimp "1.4.0")(org "7.8.09"))
 
