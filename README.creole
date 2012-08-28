@@ -40,3 +40,19 @@ So you get a kind of useful presentation like tool for basically only:
 * adding some entertaining images
 
 which makes for a pretty good presentation for most things.
+
+
+== TODO ==
+
+Some thoughts have occurred to me for making this better:
+
+* when a top level outline is open space should descend into it
+** using outline-next-visible-heading
+** if an image link is found on the current level, open it in the same way as for the main one
+** space should also move to *any* link
+*** so it should go:
+**** initial space expands top level and closes previous
+**** another space descends to next level (and next level and next level)
+**** when on a level with a url space travels to that first
+* can we change the font size of the current top level?
+** ideally it would increase by 100%
