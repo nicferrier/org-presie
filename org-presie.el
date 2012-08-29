@@ -5,7 +5,7 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Created: 26th August 2012
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Keywords: hypermedia, outlines
 ;; Package-Requires: ((eimp "1.4.0")(org "7.8.09"))
 
@@ -71,7 +71,7 @@ A postive prefix argument forces this mode on, a negative prefix
 argument forces this mode off; otherwise the mode is toggled."
   nil
   "PRES"
-  '((?\s  . org-pres-next))
+  '(([?\x20]   . org-pres-next))
   (unless (eq major-mode 'org-mode)
     (error "only works with org-mode!"))
   (add-hook 'find-file-hook 'org-pres--eimp-fit))
