@@ -5,7 +5,7 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Created: 26th August 2012
-;; Version: 0.0.4
+;; Version: 0.0.5
 ;; Keywords: hypermedia, outlines
 ;; Package-Requires: ((framesize "0.0.1")(eimp "1.4.0")(org "7.8.09"))
 
@@ -62,6 +62,7 @@
       (re-search-forward "^\\*+" nil nil)
       (show-branches)))
 
+;;;###autoload
 (define-minor-mode org-pres-mode
     "Turn on Org Presentation mode.
 
