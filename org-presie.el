@@ -56,9 +56,10 @@
                    (next-line)
                    (re-search-forward "^\\*[^*]" nil 't))))
             (when (re-search-forward
-                   "\\[\\[.*\\.\\(jpg\\|gif\\|png\\)" next-outline nil)
+                   "\\[\\[.*\\.\\(jpg\\|gif\\|png\\)" next-outline t)
               (org-open-at-point)
               (other-window -1)))))
+      (hide-subtree)
       (re-search-forward "^\\*+" nil nil)
       (show-branches)))
 
@@ -76,6 +77,7 @@ argument forces this mode off; otherwise the mode is toggled."
   '(([?\x20]   . org-pres-next))
   (unless (eq major-mode 'org-mode)
     (error "only works with org-mode!"))
+  (visual-line-mode t)
   (add-hook 'find-file-hook 'org-pres--eimp-fit))
 
 (provide 'org-presie)
