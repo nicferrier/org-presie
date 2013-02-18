@@ -5,9 +5,9 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Maintainer: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Created: 26th August 2012
-;; Version: 0.0.3
+;; Version: 0.0.4
 ;; Keywords: hypermedia, outlines
-;; Package-Requires: ((eimp "1.4.0")(org "7.8.09"))
+;; Package-Requires: ((framesize "0.0.1")(eimp "1.4.0")(org "7.8.09"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@
 
 ;;; Commentary:
 
-;; This is a very simple tool for running an org-file as a presentation.
+;; This is a very simple tool for running an org-file as a
+;; presentation.
 
 ;;; Code:
 
