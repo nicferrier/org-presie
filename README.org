@@ -1,0 +1,133 @@
+#+DATE: [2013-09-04 Qua 17:42]
+#+TITLE: Instructions - ORG-PRESIE
+# *Configuracoes gerais*
+#+OPTIONS: toc:2  reveal_mathjax:t reveal_width:1300 reveal_height:760    # pode ser nil ou t
+#+CATEGORY: howto
+
+# *Configuracao para agenda*
+#+TODO: TODO(t@) WAITING(w@) STARTED(s@) | CANCELLED(c@) DELEGATED(g@) DONE(@d)
+#+TAGS: { DIVERSOS(s) WORK(w) } CALL(c) ERRAND(e)
+
+# *Configuracoes para LATEX*
+#+LINK: bib file:/home/tuca/ORG/latex/tuca.bib::%s
+#+BIBLIOGRAPHY: /home/tuca/ORG/latex/tuca plain limit:t
+#+STYLE: &lt;link rel="stylesheet" type="text/css" href="css/org.css"&gt;
+#+LATEX_HEADER: \usepackage{biblatex}
+#+LATEX_HEADER: \usepackage[english,brazil]{babel}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \bibliography{/home/tuca/ORG/latex/tuca}
+
+# *Configuracoes para ORG_REVEAL*
+#+REVEAL_TRANS: cube  
+# Pode ser cube, page, concave, zoom, linear, etc
+#+REVEAL_THEME: moon 
+# Sky - Beige - Simple - Serif - Night - Default
+
+* Overview
+
+  To have a *very simple* presentation tool inside emacs, navigating
+  through the /org topics/.
+
+  It is completely based on *org-presie* (thanks to [[mailto:nferrier@ferrier.me.uk][Nic Ferrier]] who
+  first created the org-presie)
+
+* Installation
+  
+  - copy the file =org-presie.el= into your /el/ directory
+  - insert into =init.el= the command:
+
+    =(require 'org-presie)=
+
+    ps: if you have the above file in any other directory, first
+    insert this line to your =init.el=:
+
+    =(add-to-list 'load-path "~/<directory you have org-presie.el
+    file>")=
+
+* usage
+   In any /org file/, press *<f5>* and it will change to PRES-minor
+   mode
+   
+   | Key           | command                                                            |
+   | <f5>          | toggle PRES minor mode inside an ORG buffer                        |
+   | right (arrow) | Advance 5 lines or until next topic (any level) - what comes first |
+   | left (arrow)  | back one line at a time                                            |
+   | esc-right     | Advance to next topic                                              |
+   | esc-left      | back to previous topic                                             |
+   
+
+* POST
+  Em busca de uma ferramenta que fizesse apresentações diretamente do
+  =emacs=, encontrei um post muito interessante:
+
+  [[http://sachachua.com/blog/2013/04/how-to-present-using-org-mode-in-emacs/][How to present using Org-mode in Emacs]]
+
+  Em um primeiro momento, foi mais dificil recordar das nuances do
+  emacs, e ver a solução própria da autora para sua própria
+  apresentação.
+
+  Fui atras do *org-presie*, que me pareceu suficiente para o que
+  queria, mas em seguida se mostrou insuficiente:
+
+  - Não havia como voltar para /slides/ anteriores
+  - Não considerava sub-tópicos
+  - Não se saia muito bem na estrutura do documento, quando se
+    mesclava niveis de tópicos e/ou quando o texto era muito longo.
+
+  Solução: Fazer minhas próprias modificações, aproveitando para
+  matar a saudade dos módulos em emacslisp que fazia para suportar
+  meus programas em C/C++ (nossa.. faz tempo!!).
+
+  O módulo *continua* *BEM SIMPLES*, mas para pequenas conversas com
+  a turma, é suficiente.
+
+  O org-mode ainda permite que, para algo um pouco melhor, se exporte
+  o mesmo para o =reveal=, ou em outro formato (latex tambem bate uma
+  saudade...)
+
+  Já me dou por feliz em ter minha interface em modo texto, fazendo
+  blocos em caracteres, barras e "+" como esse:
+
+
+  #+BEGIN_LATEX 
+  {\tiny
+  #+END_LATEX
+  #+BEGIN_EXAMPLE
+                    +-----------+
+                    |           |
+                    |   EMACS   |
+                    |           |
+                   -+-----\-----+--
+                --/        \       \----
+             --/           |            \---
+      +-----/-----+  +------\-----+  +------\------+
+      |           |  |            |  |             |
+      |           |  |            |  |             |
+      |  ORG-MODE |  |PICTURE-MODE|  | ARTIST-MODE |
+      |           |  |            |  |             |
+      +-----------+  +------------+  +-------------+
+  #+END_EXAMPLE
+  #+BEGIN_LATEX 
+  }
+  #+END_LATEX
+
+  Esse /artist-mode/ ainda peca por não ter como pegar um retangulo
+  feito, ou uma reta (um elemento) e modifica-lo (mover,
+  redimensionar).
+
+  Uma vez feito, vira caracter no buffer... mas.
+
+** Onde encontrar
+   O /mode/ está disponível no repositório do github:
+
+   [[https://github.com/tucasp/org-presie][meu org-presie]]
+
+
+** DISCLAIMER
+  Certamente as modificações feitas estão um pouco longe da elegância
+  desejada, mas depois de tanto tempo tentar dominar os comandos
+  existentes e saber qual a melhor forma de fazer suas idéias em um
+  =emacslisp= seria muita pretenção!
+
+* Tasks
+** TODO 
